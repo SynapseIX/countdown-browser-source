@@ -4,5 +4,5 @@ A basic countdown browser source for OBS and other applications. To add it on OB
 
 You can chnage the number of hours to match the amount you need.
 
-It just accept hours for now, but will add support to just add minutes or seconds.
+It just accepts hours for now, but will add support to just add minutes or seconds.
 Happy streaming, and don't forget to follow me on Twitch at [twitch.tv/itsprof](https://twitch.tv/itsprof).
