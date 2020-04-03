@@ -1,11 +1,13 @@
 <html>
 <head>
   <title>Prof's Countdown Source</title>
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' />
   <style type="text/css">
     html {
+      font-family: 'Roboto';
       font-size: calc(1em + 1vw);
       color: white;
-      text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+      text-shadow: -1.5px 0 black, 0 1.5px black, 1.5px 0 black, 0 -1.5px black;
     }
     #countdown {
       width: 100%;
@@ -24,7 +26,26 @@
         hours = parseInt(hoursParam.split('=')[1]);
       }
 
-      document.getElementById('countdown').innerHTML = hours;
+      var now = new Date().getTime();
+      var countDownDate = new Date(now + (3600000 * hours));
+
+      var countdown = setInterval(function() {
+        var nowActual = new Date().getTime();
+        var distance = countDownDate - nowActual;
+
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Display the result in the element with id="demo"
+        document.getElementById('countdown').innerHTML = hours + ':' + minutes + ':' + seconds;
+
+        // If the count down is finished, write some text 
+        if (distance < 0) {
+          clearInterval(countdown);
+          document.getElementById("countdown").innerHTML = 'TIME\'S UP';
+        }
+      }, 1000);
     }
   </script>
 </head>
