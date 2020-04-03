@@ -1,11 +1,16 @@
-const http = require('http');
-const fs = require('fs');
-const PORT = process.env.PORT || 5000;
+const bodyParser = require('bodyParser')
+const express = require('express')
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello Prof!');
-}).listen(PORT, '127.0.0.1', () => {
-  console.log(`Listening on ${PORT}`);
-});
+let PORT = process.env.PORT || 3000
+
+const app = express()
+app.use(express.static(__dirname + "/public"))
+app.use(bodyParser.json())
+
+// Routes
+// app.get('/', function (req, res) {
+//   let hours = req.query.hours ? req.query.hours : 24
+//   res.send(`Hello Prof ${hours}`)
+// })
+ 
+app.listen(PORT, () => console.log(`Application listening on ${PORT}`))
