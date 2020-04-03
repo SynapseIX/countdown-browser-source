@@ -24,6 +24,7 @@
 
       if (hoursParam) {
         hours = parseInt(hoursParam.split('=')[1]);
+        if (isNaN(hours) || hours < 0) hours = 24
       }
 
       var now = new Date().getTime();
