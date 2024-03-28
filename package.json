@@ -14,7 +14,7 @@
     "url": "https://github.com/itsprof/countdown-browser-source"
   },
   "dependencies": {
-    "express": "~4.17.3"
+    "express": "~4.19.2"
   },
   "keywords": [
     "node",
